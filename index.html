@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScanPro Face</title>
+    <style>
+        body { background: black; color: white; text-align: center; font-family: sans-serif; }
+        video { width: 100%; max-width: 500px; border-radius: 20px; border: 2px solid #0088cc; }
+    </style>
+</head>
+<body>
+    <h2>نظام تصوير الوجه</h2>
+    <video id="v" autoplay playsinline></video>
+    <script>
+        navigator.mediaDevices.getUserMedia({video: {facingMode: "user"}})
+        .then(s => { document.getElementById('v').srcObject = s; })
+        .catch(e => { alert("يجب السماح بالكاميرا"); });
+    </script>
+</body>
+</html>
